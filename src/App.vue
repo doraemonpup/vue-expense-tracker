@@ -29,7 +29,7 @@ const total = computed(() => {
 
 <template>
   <div class="app-container">
-    <h1>Expense Tracker</h1>
+    <h1>💸 Expense Tracker</h1>
     <form @submit.prevent="addNewExpense">
       <input
         v-model="newExpense.description"
