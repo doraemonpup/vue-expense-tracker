@@ -17,6 +17,10 @@ const addNewExpense = () => {
   }
 }
 
+const deleteExpense = index => {
+  expenses.value.splice(index, 1)
+}
+
 // Computed property for total
 const total = computed(() => {
   return expenses.value.reduce((sum, expense) => sum + expense.amount, 0)
@@ -38,6 +42,7 @@ const total = computed(() => {
         type="number"
         placeholder="Amount"
         min="0"
+        step="0.01"
         required
       />
       <button type="submit">Add Expense</button>
@@ -47,6 +52,7 @@ const total = computed(() => {
     <ul>
       <li v-for="(expense, index) in expenses" :key="index">
         <span>{{ expense.description }} - {{ expense.amount }}€</span>
+        <button @click="deleteExpense(index)">Delete</button>
       </li>
     </ul>
 
@@ -87,10 +93,12 @@ button:hover {
   background-color: #0056b3;
 }
 ul {
-  list-style: inside;
+  /* list-style: none; */
   padding: 0;
 }
 li {
+  display: flex;
+  justify-content: space-between;
   padding: 5px 0;
 }
 </style>
