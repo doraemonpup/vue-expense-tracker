@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 // Reactive data
 const expenses = ref([])
@@ -16,6 +16,11 @@ const addNewExpense = () => {
     newExpense.value.amount = null
   }
 }
+
+// Computed property for total
+const total = computed(() => {
+  return expenses.value.reduce((sum, expense) => sum + expense.amount, 0)
+})
 </script>
 
 <template>
@@ -41,9 +46,11 @@ const addNewExpense = () => {
     <h2>Expenses</h2>
     <ul>
       <li v-for="(expense, index) in expenses" :key="index">
-        <span>{{ expense.description }} - ${{ expense.amount }}</span>
+        <span>{{ expense.description }} - {{ expense.amount }}€</span>
       </li>
     </ul>
+
+    <h2>Total: {{ total }}€</h2>
   </div>
 </template>
 
