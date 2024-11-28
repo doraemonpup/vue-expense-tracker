@@ -1,11 +1,40 @@
-<script setup></script>
+<script setup>
+import { ref } from 'vue'
+
+// Reactive data
+const expenses = ref([])
+const newExpense = ref({
+  description: '',
+  amount: null,
+})
+
+// Methods
+const addNewExpense = () => {
+  if (newExpense.value.description.length > 0 && newExpense.value.amount >= 0) {
+    expenses.value.push({ ...newExpense.value })
+    newExpense.value.description = ''
+    newExpense.value.amount = null
+  }
+}
+</script>
 
 <template>
   <div class="app-container">
     <h1>Expense Tracker</h1>
-    <form>
-      <input type="text" placeholder="Expense Description" required />
-      <input type="number" placeholder="Amount" required />
+    <form @submit.prevent="addNewExpense">
+      <input
+        v-model="newExpense.description"
+        type="text"
+        placeholder="Expense Description"
+        required
+      />
+      <input
+        v-model="newExpense.amount"
+        type="number"
+        placeholder="Amount"
+        min="0"
+        required
+      />
       <button type="submit">Add Expense</button>
     </form>
   </div>
