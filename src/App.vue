@@ -37,6 +37,13 @@ const addNewExpense = () => {
       />
       <button type="submit">Add Expense</button>
     </form>
+
+    <h2>Expenses</h2>
+    <ul>
+      <li v-for="(expense, index) in expenses" :key="index">
+        <span>{{ expense.description }} - ${{ expense.amount }}</span>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -71,5 +78,12 @@ button {
 button:hover {
   color: #e5efef;
   background-color: #0056b3;
+}
+ul {
+  list-style: inside;
+  padding: 0;
+}
+li {
+  padding: 5px 0;
 }
 </style>
