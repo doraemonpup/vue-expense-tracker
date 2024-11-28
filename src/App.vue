@@ -17,24 +17,20 @@
   max-width: 600px;
   margin: 0 auto;
 }
-
 form {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
 }
-
 input {
   padding: 5px;
 }
-
 input:first-child {
   width: 200px;
 }
 input:nth-child(2) {
   width: 100px;
 }
-
 button {
   padding: 5px 10px;
   background-color: #007bff;
@@ -43,7 +39,6 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
-
 button:hover {
   color: #e5efef;
   background-color: #0056b3;

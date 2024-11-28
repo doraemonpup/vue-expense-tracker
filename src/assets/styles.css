@@ -6,6 +6,15 @@
 
 body {
   font-family: Arial, sans-serif;
-  color: #fcfdfd;
-  background-color: #212529;
+  /* color: #fcfdfd;
+  background-color: #212529; */
+  color: #212529;
+  background-color: #fcfdfd;
+}
+
+/* Hide arrows from input number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
