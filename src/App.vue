@@ -63,6 +63,7 @@ const handleTransactionDeleted = id => {
   transactions.value = transactions.value.filter(t => {
     return t.id !== id
   })
+
   toast.success('TransactionList deleted')
 
   // // if no {} -> return statement not required
